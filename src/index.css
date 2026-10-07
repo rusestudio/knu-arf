@@ -1,1 +1,70 @@
 @import "tailwindcss";
+
+@theme {
+  /* ARF Brand Colors */
+  --color-arf-orange: #E9783D;
+  --color-arf-orange-light: #F6B17A;
+  --color-arf-orange-soft: #FCE8D5;
+
+  --color-arf-brown: #6B4432;
+  --color-arf-brown-light: #A67C65;
+
+  --color-arf-cream: #FFF8EE;
+  --color-arf-beige: #F4E6D4;
+
+  --color-arf-green: #7E9B76;
+
+  /* Text */
+  --color-arf-text: #332A25;
+  --color-arf-text-secondary: #776A63;
+
+  /* Surface */
+  --color-arf-background: #F8EEDF;
+  --color-arf-surface: #FFFFFF;
+
+  /* Border */
+  --color-arf-border: #EEE2D7;
+
+    /* Border Radius */
+    --radius-arf-sm: 12px;
+    --radius-arf-md: 16px;
+    --radius-arf-lg: 24px;
+    --radius-arf-xl: 32px;
+
+    /* Shadows */
+    --shadow-arf-sm: 0 2px 8px rgba(107, 68, 50, 0.06);
+    --shadow-arf-md: 0 6px 20px rgba(107, 68, 50, 0.10);
+    --shadow-arf-lg: 0 12px 32px rgba(107, 68, 50, 0.14);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family:
+      Pretendard,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-arf-background);
+    color: var(--color-arf-text);
+    font-weight: 400;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
