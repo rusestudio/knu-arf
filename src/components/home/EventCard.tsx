@@ -7,9 +7,9 @@ interface EventCardProps {
 
 function EventCard({ event }: EventCardProps) {
   return (
-    <article className="w-[150px] shrink-0 overflow-hidden rounded-[16px] bg-white shadow-arf-sm">
+    <article className="w-[140px] shrink-0 overflow-hidden rounded-[16px] bg-white shadow-arf-sm ">
       {/* Event image */}
-      <div className="relative h-[88px] overflow-hidden">
+      <div className=" relative h-[88px] overflow-hidden">
         <img
           src={event.image}
           alt={event.title}

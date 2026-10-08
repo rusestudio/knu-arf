@@ -1,6 +1,8 @@
 import homeBanner from '../assets/home/hometopbanner.png'
 import armapBanner from '../assets/home/arexplorebanner.png'
 import EventCard from '../components/home/EventCard'
+import FestivalStatus from "../components/home/FestivalStatus";
+import MapleTreeBanner from "../components/home/MapleTreeBanner";
 import { festivalEvents } from '../data/events'
 
 import { ChevronRight } from 'lucide-react'
@@ -69,7 +71,7 @@ function HomePage() {
       </section>
 
       {/* Currently Running */}
-        <section className="mt-3">
+        <section className="mt-3 px-4">
           <div className="px-4">
             <h2 className="text-[20px] font-bold text-arf-text">
               지금 진행 중 🔥
@@ -102,6 +104,12 @@ function HomePage() {
             ))}
           </div>
         </section>
+
+          {/* New festival status */}
+          <FestivalStatus />
+
+          {/* New maple tree banner */}
+          <MapleTreeBanner />
 
 
     </main>
