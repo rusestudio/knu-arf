@@ -820,3 +820,6 @@ Testing + Deployment
 ```
 
 The frontend should therefore be developed in a way that allows mock data and placeholder functions to be replaced later without redesigning the pages.
+
+
+//catergory 별 kiv

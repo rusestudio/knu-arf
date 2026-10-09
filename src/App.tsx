@@ -5,6 +5,7 @@ import StampPage from './pages/StampPage'
 import MyPage from './pages/MyPage'
 import MobileLayout from './layouts/MobileLayout'
 import BottomNavigation from './components/BottomNavigation'
+import CharacterDetail from './components/stamp/CharacterDetail'
 
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="/ar" element={<ARPage />} />
           <Route path="/stamp" element={<StampPage />} />
+            <Route path="/stamp/:characterId" element={<CharacterDetail />}/>
           <Route path="/my" element={<MyPage />} />
         </Routes>
 
