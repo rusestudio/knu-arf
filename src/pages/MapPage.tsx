@@ -158,6 +158,7 @@ function MapPage() {
                 type="button"
                 onClick={() => setSelectedFoodTruck(truck)}
                 aria-label={truck.name}
+                aria-pressed={selectedFoodTruck?.id === truck.id}
                 className="absolute z-10 w-[7%] -translate-x-1/2 -translate-y-full"
                 style={{
                   left: `${truck.x}%`,

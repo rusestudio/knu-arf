@@ -4,7 +4,7 @@ import {
   greetingBanner,
   collectionIcon,
   collectionBear,
-  mapleLeaves,
+  //mapleLeaves,
   visitedIcon,
   matchingRecordIcon,
   spaceRecordIcon,
