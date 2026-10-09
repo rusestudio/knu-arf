@@ -8,6 +8,8 @@ import {
   Info,
   Navigation,
 } from 'lucide-react'
+import { useRef } from 'react'
+import type { TouchEvent } from 'react'
 
 export type MapPlace = {
   id: number
@@ -31,12 +33,72 @@ function MapBottomDrawer({ place, onDetails }: MapBottomDrawerProps) {
 
   if (!place) return null
 
+    
+  const [isExpanded, setIsExpanded] = useState(true)
+  const touchStartY = useRef<number | null>(null)
+
+  const handleTouchStart = (e: TouchEvent<HTMLElement>) => {
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: TouchEvent<HTMLElement>) => {
+    if (touchStartY.current === null) return
+
+    const touchEndY = e.changedTouches[0].clientY
+    const swipeDistance = touchEndY - touchStartY.current
+
+    if (swipeDistance > 50) {
+      // Swipe down: collapse
+      setIsExpanded(false)
+    } else if (swipeDistance < -50) {
+      // Swipe up: expand
+      setIsExpanded(true)
+    }
+
+    touchStartY.current = null
+  }
+
+
   return (
-    <section className="absolute bottom-0 left-0 right-0 z-30 rounded-t-[28px] bg-white px-4 pb-5 pt-3 shadow-xl">
+    <section  className={`
+                      absolute bottom-0 left-0 right-0 z-30
+                      rounded-t-[28px] bg-white px-4 pt-3
+                      transition-all duration-300 ease-in-out
+                      ${
+                        isExpanded
+                          ? 'pb-5 shadow-xl'
+                          : 'pb-2 shadow-md'
+                      }
+                    `}
+                  >
 
       {/* Drawer handle */}
-      <div className="mx-auto mb-3 h-1.5 w-12 rounded-full bg-gray-300" />
+      {/* Clickable / Swipeable drawer handle */}
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onClick={() => setIsExpanded((prev) => !prev)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            setIsExpanded((prev) => !prev)
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-expanded={isExpanded}
+        aria-label={
+          isExpanded ? '부스 정보 접기' : '부스 정보 펼치기'
+        }
+        className={`
+          flex cursor-pointer touch-none justify-center
+          ${isExpanded ? 'mb-3 py-2' : 'py-1'}
+        `}
+      >
+        <div className="h-1.5 w-12 rounded-full bg-gray-300" />
+      </div>
 
+      {isExpanded && (
       <div className="flex gap-3">
 
         {/* Booth image */}
@@ -111,6 +173,7 @@ function MapBottomDrawer({ place, onDetails }: MapBottomDrawerProps) {
 
         </div>
       </div>
+      )}
     </section>
   )
 }
