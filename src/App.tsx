@@ -14,16 +14,18 @@ function App() {
   return (
     <BrowserRouter>
       <MobileLayout>
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
+        <main className="mx-auto max-w-[430px]">
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
 
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/map" element={<MapPage />} />
-          <Route path="/ar" element={<ARPage />} />
-          <Route path="/stamp" element={<StampPage />} />
-            <Route path="/stamp/:characterId" element={<CharacterDetail />}/>
-          <Route path="/my" element={<MyPage />} />
-        </Routes>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/map" element={<MapPage />} />
+            <Route path="/ar" element={<ARPage />} />
+            <Route path="/stamp" element={<StampPage />} />
+            <Route path="/stamp/:characterId" element={<CharacterDetail />} />
+            <Route path="/my" element={<MyPage />} />
+          </Routes>
+        </main>
 
         <BottomNavigation />
       </MobileLayout>

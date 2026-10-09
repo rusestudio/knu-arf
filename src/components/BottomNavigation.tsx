@@ -31,8 +31,7 @@ function BottomNavigation() {
   ]
 
   return (
-    <nav className="absolute bottom-0 left-0 right-0 z-100 border-t border-arf-border bg-white">
-      <div className="flex h-[72px] items-center justify-around px-2">
+    <nav className="fixed bottom-0 left-1/2 z-[100] w-full max-w-[430px] -translate-x-1/2 border-t border-arf-border bg-white pb-[env(safe-area-inset-bottom)]">      <div className="flex h-[72px] items-center justify-around px-2">
 
         {navItems.map((item) => {
           const Icon = item.icon
